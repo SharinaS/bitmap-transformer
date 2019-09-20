@@ -18,7 +18,6 @@ public class App {
 
         readImageFile();
 
-
     }
 
     public static void readImageFile(){
@@ -29,28 +28,59 @@ public class App {
         //height of the image
         int height = 100;
 
-
-
         //read image file
         try {
             f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/mario.bmp");
             image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
             image = ImageIO.read(f);
             System.out.println("Reading complete.");
+
+            //trying to iterate through pixels
+            for (int i=0; i < width; i++){
+                for( int j=0; j < width; j++){
+                    //getting RGB color on each pixel
+                    Color c = new Color(image.getRGB(j, i));
+                    int r = c.getRed();
+                    int g = c.getGreen();
+                    int b = c.getBlue();
+                    int a = c.getAlpha();
+                    //turning color to grayscale
+                    int gr = (r + g + b) / 3;
+                    //create gray color
+                    Color grayColor = new Color (gr, gr, gr, a);
+                    image.setRGB(j, i, grayColor.getRGB());
+                }
+            }
+            //write new file
+            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
+            //write to file
+            ImageIO.write(image, "bmp", f);
+            System.out.println("Completed Writing");
+
+
         }catch(IOException e){
             System.out.println("Error: " +e );
         }
+
+
+
+
+
+
+
+
         //write image
         //unchanged new image
-        try{
-            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
-            ImageIO.write(image,"bmp", f);
-            System.out.println("Completed Writing");
-        }catch(IOException e){
-            System.out.println("Error: " +e);
-        }
-
-
+//        try {
+//            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
+//            ImageIO.write(image, "bmp", f);
+//            System.out.println("Completed Writing");
+//        } catch (IOException e) {
+//            System.out.println("Error: " + e);
+//        }
     }
+
+
+
 
 }

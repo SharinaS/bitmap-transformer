@@ -15,12 +15,21 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
+
+        readImageFile();
+
+
+    }
+
+    public static void readImageFile(){
+        File f = null;
+        BufferedImage image = null;
         //width of the image
         int width = 100;
         //height of the image
         int height = 100;
-        BufferedImage image = null;
-        File f = null;
+
+
 
         //read image file
         try {
@@ -32,13 +41,16 @@ public class App {
             System.out.println("Error: " +e );
         }
         //write image
+        //unchanged new image
         try{
             f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
             ImageIO.write(image,"bmp", f);
             System.out.println("Completed Writing");
-            }catch(IOException e){
+        }catch(IOException e){
             System.out.println("Error: " +e);
         }
-        
+
+
     }
+
 }

@@ -14,60 +14,35 @@ public class App {
         return "Hello world.";
     }
 
+
+    //main method
     public static void main(String[] args) throws IOException {
 
-        readImageFile();
+        // make a new bitmap
+        Bitmap bmp = new Bitmap(inputFile, outputFile);
+        // call the method they requested args[2]
+        // use paths to find/asve file args[0] args[1]
+
+        readImageFile(width,height, null, null);
+        imageToGrayscale(width,height, null, null);
 
     }
 
-    public static void readImageFile(){
-        File f = null;
-        BufferedImage image = null;
-        //width of the image
-        int width = 100;
-        //height of the image
-        int height = 100;
+//reference https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be
+    public static void readImageFile(int width, int height, File f, BufferedImage image){
+
 
         //read image file
+        //constructor --
         try {
             f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/mario.bmp");
             image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
             image = ImageIO.read(f);
             System.out.println("Reading complete.");
 
-            //trying to iterate through pixels
-            for (int i=0; i < width; i++){
-                for( int j=0; j < width; j++){
-                    //getting RGB color on each pixel
-                    Color c = new Color(image.getRGB(j, i));
-                    int r = c.getRed();
-                    int g = c.getGreen();
-                    int b = c.getBlue();
-                    int a = c.getAlpha();
-                    //turning color to grayscale
-                    int gr = (r + g + b) / 3;
-                    //create gray color
-                    Color grayColor = new Color (gr, gr, gr, a);
-                    image.setRGB(j, i, grayColor.getRGB());
-                }
-            }
-            //write new file
-            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
-            //write to file
-            ImageIO.write(image, "bmp", f);
-            System.out.println("Completed Writing");
-
-
         }catch(IOException e){
             System.out.println("Error: " +e );
         }
-
-
-
-
-
-
-
 
         //write image
         //unchanged new image
@@ -80,7 +55,35 @@ public class App {
 //        }
     }
 
+    public static void imageToGrayscale(int width, int height, File f, BufferedImage image) {
+        try {
+            //trying to iterate through pixels
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < width; j++) {
+                    //getting RGB color on each pixel
+                    Color c = new Color(image.getRGB(j, i));
+                    int r = c.getRed();
+                    int g = c.getGreen();
+                    int b = c.getBlue();
+                    int a = c.getAlpha();
+                    //turning color to grayscale
+                    int gr = (r + g + b) / 3;
+                    //create gray color
+                    Color grayColor = new Color(gr, gr, gr, a);
+                    image.setRGB(j, i, grayColor.getRGB());
+                    //reference https://www.youtube.com/watch?v=cq80Itgs5Lw&feature=youtu.be
+                    //write new file
+                    f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
+                    //write to file
+                    ImageIO.write(image, "bmp", f);
+                    System.out.println("Completed Writing");
+                }
+                 }
+            }catch(IOException e){
+                System.out.println("Error: " + e);
+            }
 
-
-
+    }
 }
+
+

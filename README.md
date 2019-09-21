@@ -1,6 +1,6 @@
 # Bitmap Transformer
 ## About
-An application written in Java that allows the user to use command line to input a bitmap file, transform bitmaps and write transformed bitmaps to desired locations. 
+An application written in Java using OOP that allows the user to use command line to input a bitmap file, transform bitmaps and write transformed bitmaps to desired locations. 
 
 ## Contributors
 Functional code that reads and writes files and transforms image to grayscale written by:

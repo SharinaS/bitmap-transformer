@@ -26,5 +26,11 @@ As application is currently written, it is designed to be run through the comman
 `grayscale`
 ### Make a copy of an image
 `no`
+### Turn colors of the image into shades of green
+`green`
+### Fill image with solid shade of pink, obliterating original image
+`pink-box`
+
+
 
 

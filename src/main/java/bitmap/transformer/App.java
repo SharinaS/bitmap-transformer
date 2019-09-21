@@ -34,6 +34,15 @@ public class App {
         if (args[2].equals("grayscale")) {
             bitMapFromFile.convertToGrayScale();
         }
+
+        if (args[2].equals("green")) {
+            bitMapFromFile.convertToGreens();
+        }
+
+        if (args[2].equals("pink-box")) {
+            bitMapFromFile.convertImageToPinkBox();
+        }
+
         bitMapFromFile.write(args[1]);
     }
 }

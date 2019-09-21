@@ -6,12 +6,16 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
 public class BitMap {
 
     // ===instance variables ===
     BufferedImage pixelData;
 
     // === constructor ===
+    // resource referenced for reading and writing bitmap file:
+    // https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be
+
     public BitMap(String fileName) throws IOException {
         File f = new File(fileName);
 
@@ -22,6 +26,8 @@ public class BitMap {
 
     // === instance methods ===
     // Instance that converts image to grayscale
+    // reference used to learn how to convert to grayscale:
+    // https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be
     public void convertToGrayScale() {
         for (int i=0; i < this.pixelData.getWidth(); i++){
             for( int j=0; j < this.pixelData.getHeight(); j++){

@@ -10,32 +10,42 @@ import java.io.File;
 import java.io.IOException;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
+//    public String getGreeting() {
+//        return "Hello world.";
+//    }
     public static void main(String[] args) throws IOException {
+        String file = "assets/mario.bmp";
+        // Create an instance. bitMapFromFile is a class.
+        BitMap bitMapFromFile = new BitMap(file);
+        // Tell the instance to do something - Grayscale
+        bitMapFromFile.convertToGrayScale();
+        // tell the instance to write out to new file
+        bitMapFromFile.write("assets/marioFromConstructor.bmp");
 
-        readImageFile();
+        //readImageFile();
 
     }
+
 
     public static void readImageFile(){
-        File f = null;
-        BufferedImage image = null;
-        //width of the image
         int width = 100;
-        //height of the image
         int height = 100;
 
-        //read image file
+        //=====
+        // Read Image File
+        // Inspired by How to Read and Write File in Java -
+        // https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be
+        //=====
         try {
-            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/mario.bmp");
-            image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-            image = ImageIO.read(f);
+            File f = new File("assets/mario.bmp");
+            BufferedImage image = ImageIO.read(f);
             System.out.println("Reading complete.");
 
-            //trying to iterate through pixels
+            // =====
+            // Convert Image to GreyScale
+            // Used resource from YouTube - Java: Read Image Pixel By Pixel And Convert To Grayscale Color Using Simple Grayscaling method -
+            // https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be
+            //=====
             for (int i=0; i < width; i++){
                 for( int j=0; j < width; j++){
                     //getting RGB color on each pixel
@@ -52,7 +62,7 @@ public class App {
                 }
             }
             //write new file
-            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
+            f = new File("assets/marioFromTerminal.bmp");
             //write to file
             ImageIO.write(image, "bmp", f);
             System.out.println("Completed Writing");
@@ -61,23 +71,6 @@ public class App {
         }catch(IOException e){
             System.out.println("Error: " +e );
         }
-
-
-
-
-
-
-
-
-        //write image
-        //unchanged new image
-//        try {
-//            f = new File("/Users/paulacruz/Documents/codefellows/401/java-fundamentals/bitmap-transformer/assets/marioNew.bmp");
-//            ImageIO.write(image, "bmp", f);
-//            System.out.println("Completed Writing");
-//        } catch (IOException e) {
-//            System.out.println("Error: " + e);
-//        }
     }
 
 

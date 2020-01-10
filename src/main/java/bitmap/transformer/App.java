@@ -26,11 +26,12 @@ public class App {
 //    }
 
     public static void main(String[] args) throws IOException {
-        String file = args[0];
-        // create instance
-        BitMap bitMapFromFile = new BitMap(file);
+
+        // create instance of BitMap
+        // ... and set first argument to where the original file lives
+        BitMap bitMapFromFile = new BitMap(args[0]);
         
-        // methods
+        // methods to call for various bitmaps
         if (args[2].equals("grayscale")) {
             bitMapFromFile.convertToGrayScale();
         }
@@ -43,6 +44,7 @@ public class App {
             bitMapFromFile.convertImageToPinkBox();
         }
 
+        // In terminal, the second argument refers to where you want the new bitmap to populate.
         bitMapFromFile.write(args[1]);
     }
 }

@@ -6,28 +6,21 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
 public class BitMap {
 
-    // ===instance variables ===
+    // ===instance variable ===
     BufferedImage pixelData;
 
     // === constructor ===
-    // resource referenced for reading and writing bitmap file:
-    // https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be
-
     public BitMap(String fileName) throws IOException {
         File f = new File(fileName);
-
         this.pixelData = ImageIO.read(f);
 
         System.out.println("Reading complete.");
     }
 
     // === instance methods ===
-    // Instance that converts image to grayscale
-    // reference used to learn how to convert to grayscale:
-    // https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be
+    // instance that converts image to grayscale
     public void convertToGrayScale() {
         for (int i=0; i < this.pixelData.getWidth(); i++){
             for( int j=0; j < this.pixelData.getHeight(); j++){
@@ -39,6 +32,7 @@ public class BitMap {
                 int a = c.getAlpha();
                 //turning color to grayscale
                 int gr = (r + g + b) / 3;
+
                 //create gray color
                 Color grayColor = new Color (gr, gr, gr, a);
                 this.pixelData.setRGB(i, j, grayColor.getRGB());
@@ -84,4 +78,26 @@ public class BitMap {
         ImageIO.write(this.pixelData, "bmp", f);
         System.out.println("Completed Writing");
     }
+
+
+//    // Code kindly supplied by Jon Veach
+//    public void reverseVertically() {
+//        for (int i = 0; i < width; i++){
+//            for (int j = 0; j < height/2; j++){
+//                int temp = image.getRGB(i,j);
+//                image.setRGB(i,j,image.getRGB(i,height - j - 1));
+//                image.setRGB(i,height -j -1, temp);
+//            }
+//        }
+//    }
+//    // reverse an image horizontally
+//    public void reverseHorizontally() {
+//        for (int i = 0; i < height/2; i++){
+//            for (int j = 0; j < width; j++){
+//                int temp = image.getRGB(i,j);
+//                image.setRGB(i,j,image.getRGB(width - i - 1,j));
+//                image.setRGB(width - i - 1,j, temp);
+//            }
+//        }
+//    }
 }

@@ -25,11 +25,33 @@ As application is currently written, it is designed to be run through the comman
 ### Turn a color image into grayscale
 `grayscale`
 ### Make a copy of an image
-`no`
+Any word you like, such as:
+`copy`
 ### Turn colors of the image into shades of green
 `green`
 ### Fill image with solid shade of pink, obliterating original image
 `pink-box`
+
+# Steps in Building A BitMap 
+Steps developed by Jeff Borda
+* Go to java-basics. Gradle init: $ gradle init --type java-application
+* Initial project setup:
+  * gitignore
+  * README.md
+* Create a Bitmap class
+* Bitmap constructor: Bitmap(intputPath, outputPath)
+* Write save() method, so initial setup can be verified
+* Add some bitmap images to a /resources folder.
+* Develop main method in app, so it takes in arguments from CLI. After this it can be run to check if it's working by taking in a file and saving it again.
+* Now implement the CLI in the main method. Can use a switch. Will be able to take in input file path, output file path, and transform name.
+* Create empty methods for those transforms so they can be called without errors. Test again that the image is being saved. Write 'flipVertically' method.
+* Write 'flipHorizontally' method.
+* Write 'addRedBorder' method. 
+* Write tests. Can make test images. 
+
+# Resources
+* [resource referenced for reading and writing bitmap file](https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be)
+* [reference used to learn how to convert to grayscale](https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be)
 
 
 

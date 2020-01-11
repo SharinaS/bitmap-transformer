@@ -90,25 +90,25 @@ public class BitMap {
             }
         }
     }
-//
-//    // Code kindly supplied by Jon Veach
-//    public void reverseVertically() {
-//        for (int i = 0; i < width; i++){
-//            for (int j = 0; j < height/2; j++){
-//                int temp = image.getRGB(i,j);
-//                image.setRGB(i,j,image.getRGB(i,height - j - 1));
-//                image.setRGB(i,height -j -1, temp);
-//            }
-//        }
-//    }
-//    // reverse an image horizontally
-//    public void reverseHorizontally() {
-//        for (int i = 0; i < height/2; i++){
-//            for (int j = 0; j < width; j++){
-//                int temp = image.getRGB(i,j);
-//                image.setRGB(i,j,image.getRGB(width - i - 1,j));
-//                image.setRGB(width - i - 1,j, temp);
-//            }
-//        }
-//    }
+
+    // Jon Veach kindly shared some starter code
+    public void reverseImageVertically() {
+        for (int i = 0; i < this.pixelData.getWidth(); i++){
+            for (int j = 0; j < this.pixelData.getHeight()/2; j++){
+                int temp = this.pixelData.getRGB(i,j);
+                this.pixelData.setRGB(i,j, this.pixelData.getRGB(i,this.pixelData.getHeight() - j - 1));
+                this.pixelData.setRGB(i,this.pixelData.getHeight() - j - 1, temp);
+            }
+        }
+    }
+
+    public void reverseImageHorizontally() {
+        for (int i = 0; i < this.pixelData.getHeight()/2; i++){
+            for (int j = 0; j < this.pixelData.getWidth(); j++){
+                int temp = this.pixelData.getRGB(i,j);
+                this.pixelData.setRGB(i,j,this.pixelData.getRGB(this.pixelData.getWidth() - i - 1, j));
+                this.pixelData.setRGB(this.pixelData.getWidth() - i - 1, j, temp);
+            }
+        }
+    }
 }

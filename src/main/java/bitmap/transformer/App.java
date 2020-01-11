@@ -20,7 +20,7 @@ public class App {
             String file = args[0];
             BitMap bitMapFromFile = new BitMap(file);
 
-            // methods to call for various bitmaps
+            // Transforms to use within the command line
             if (args[2].equals("grayscale")) {
                 bitMapFromFile.convertToGrayScale();
             }
@@ -32,6 +32,12 @@ public class App {
             }
             if (args[2].equals("negative")) {
                 bitMapFromFile.negativeImage();
+            }
+            if (args[2].equals("vertical")) {
+                bitMapFromFile.reverseImageVertically();
+            }
+            if (args[2].equals("mirror")) {
+                bitMapFromFile.reverseImageHorizontally();
             }
 
             // In terminal, the second argument refers to where you want the new bitmap to populate.

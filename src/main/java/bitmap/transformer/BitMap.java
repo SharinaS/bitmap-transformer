@@ -20,6 +20,14 @@ public class BitMap {
     }
 
     // === instance methods ===
+
+    // instance that writes the new image to the desired file
+    public void write(String fileNameToWriteTo) throws IOException {
+        File f = new File(fileNameToWriteTo);
+        ImageIO.write(this.pixelData, "bmp", f);
+        System.out.println("Completed Writing");
+    }
+
     // instance that converts image to grayscale
     public void convertToGrayScale() {
         for (int i=0; i < this.pixelData.getWidth(); i++){
@@ -71,15 +79,19 @@ public class BitMap {
             }
         }
     }
-
-    // instance that writes the new image to the desired file
-    public void write(String fileNameToWriteTo) throws IOException {
-        File f = new File(fileNameToWriteTo);
-        ImageIO.write(this.pixelData, "bmp", f);
-        System.out.println("Completed Writing");
-    }
-
-
+    // http://www.java2s.com/Tutorials/Java/Graphics_How_to/Image/Convert_negative_image_to_positive.htm
+//    public void invertImage() {
+//
+//        for (int i=0; i < this.pixelData.getWidth(); i++){
+//            for( int j=0; j < this.pixelData.getHeight(); j++){
+//                int rgba = img.getRGB(x, y);
+//                Color color = new Color(rgba, true);
+//                color = new Color(255 - color.getRed(), 255 - color.getGreen(), 255 - color.getBlue());
+//                img.setRGB(x, y, color.getRGB());
+//            }
+//        }
+//    }
+//    
 //    // Code kindly supplied by Jon Veach
 //    public void reverseVertically() {
 //        for (int i = 0; i < width; i++){

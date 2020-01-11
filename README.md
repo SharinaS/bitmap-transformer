@@ -16,11 +16,11 @@ Modularized code - following best practice for OOP - tests and additional transf
 
 ## How to run the application
 As application is currently written, it is designed to be run through the command line using gradlew. 
-* the first argument will be the relative input filepath (ie, assets/mario.bmp) 
-* the second argument will be the output for the relative filepath (ie, assets/newMario.bmp)
-* the third argument will be `no` if no transformation is desired, just a copy. If a transformation is desired, the third argument will be the name of a transformation available (ie, grayscale)
+* the first argument will be the relative input filepath (ie, `assets/mario.bmp`) .
+* the second argument will be the output for the relative filepath (ie, `assets/newMario.bmp`).
+* the third argument will be the name of the transformation (ie, `mirror`).
 
-### gradlew command with an example
+### Example command to run to turn a color image into grayscale (note the American spelling of 'gray').
 ```
 ./gradlew run --args 'assets/mario.bmp assets/newMario.bmp grayscale'
 ```
@@ -33,6 +33,7 @@ Any word you like, such as:
 `copy`
 
 ![a copy](assets/mario.bmp)
+
 ### Turn colors of the image into shades of green
 `green`
 
@@ -42,7 +43,7 @@ Any word you like, such as:
 
 ![obliterate with pink](assets/pink-box.bmp)
 
-### Make a negative of an image
+### Make a negative of an image - inverting
 `negative`
 
 ![negative transformation](assets/negative.bmp)
@@ -75,9 +76,10 @@ Steps kindly shared by software developer, Jeff Borda.
 * Write tests. Can make test images. 
 
 # Resources
-* [resource referenced for reading and writing bitmap file](https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be)
-* [reference used to learn how to convert to grayscale](https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be)
-
+* [Oracle docs on reading/writing images](https://docs.oracle.com/javase/tutorial/2d/images/loadimage.html)
+* [Reading and writing bitmap file YouTube video](https://www.youtube.com/watch?v=lGX0Gc6d51s&feature=youtu.be)
+* [Convert to grayscale YouTube video](https://www.youtube.com/watch?v=cq80Itgs5Lw&amp=&feature=youtu.be)
+* [Convert negative to positive Tutorial](http://www.java2s.com/Tutorials/Java/Graphics_How_to/Image/Convert_negative_image_to_positive.html)
 
 
 

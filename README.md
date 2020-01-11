@@ -31,6 +31,8 @@ As application is currently written, it is designed to be run through the comman
 ### Make a copy of an image
 Any word you like, such as:
 `copy`
+
+![a copy](assets/mario.bmp)
 ### Turn colors of the image into shades of green
 `green`
 
@@ -45,8 +47,18 @@ Any word you like, such as:
 
 ![negative transformation](assets/negative.bmp)
 
+### Turn image upside down and reverse
+`vertical`
+
+![vertical and reverse](assets/vertical.bmp)
+
+### Make a mirror image - horizontal reversal
+`mirror`
+
+![mirror image](assets/horizontal.bmp)
+
 # Steps in Building A BitMap 
-Steps developed by Jeff Borda
+Steps kindly shared by software developer, Jeff Borda.
 * Go to java-basics. Gradle init: $ gradle init --type java-application
 * Initial project setup:
   * gitignore

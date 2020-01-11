@@ -10,41 +10,29 @@ import java.io.File;
 import java.io.IOException;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
-    // === Main that uses IntelliJ to run the program ===
-//    public static void main(String[] args) throws IOException {
-//        String file = "assets/mario.bmp";
-//        // Create an instance. bitMapFromFile is a class.
-//        BitMap bitMapFromFile = new BitMap(file);
-//        // Tell the instance to do something - Grayscale
-//        bitMapFromFile.convertToGrayScale();
-//        // tell the instance to write out to new file
-//        bitMapFromFile.write("assets/marioFromConstructor.bmp");
-//    }
 
     public static void main(String[] args) throws IOException {
 
-        // create instance of BitMap
-        // ... and set first argument to where the original file lives
-        BitMap bitMapFromFile = new BitMap(args[0]);
-        
-        // methods to call for various bitmaps
-        if (args[2].equals("grayscale")) {
-            bitMapFromFile.convertToGrayScale();
-        }
+        if (args.length > 0) {
 
-        if (args[2].equals("green")) {
-            bitMapFromFile.convertToGreens();
-        }
+            // create instance of BitMap
+            // ... and set first argument to where the original file lives
+            String file = args[0];
+            BitMap bitMapFromFile = new BitMap(file);
 
-        if (args[2].equals("pink-box")) {
-            bitMapFromFile.convertImageToPinkBox();
-        }
+            // methods to call for various bitmaps
+            if (args[2].equals("grayscale")) {
+                bitMapFromFile.convertToGrayScale();
+            }
+            if (args[2].equals("green")) {
+                bitMapFromFile.convertToGreens();
+            }
+            if (args[2].equals("pink-box")) {
+                bitMapFromFile.convertImageToPinkBox();
+            }
 
-        // In terminal, the second argument refers to where you want the new bitmap to populate.
-        bitMapFromFile.write(args[1]);
+            // In terminal, the second argument refers to where you want the new bitmap to populate.
+            bitMapFromFile.write(args[1]);
+        }
     }
 }

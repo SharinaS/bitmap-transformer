@@ -4,6 +4,8 @@ An application written in Java that allows the user to use their command line to
 
 Currently works reliably with .bmp files.
 
+![image of a transform](assets/negative.bmp)
+
 ## Contributors
 Functional code that reads and writes files and transforms image to grayscale written by:
 * Sharina Stubbs
@@ -31,11 +33,17 @@ Any word you like, such as:
 `copy`
 ### Turn colors of the image into shades of green
 `green`
+
+![green transform](assets/green.bmp)
 ### Fill image with solid shade of pink, obliterating original image
 `pink-box`
 
+![obliterate with pink](assets/pink-box.bmp)
+
 ### Make a negative of an image
 `negative`
+
+![negative transformation](assets/negative.bmp)
 
 # Steps in Building A BitMap 
 Steps developed by Jeff Borda

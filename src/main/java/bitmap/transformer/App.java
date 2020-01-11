@@ -30,6 +30,9 @@ public class App {
             if (args[2].equals("pink-box")) {
                 bitMapFromFile.convertImageToPinkBox();
             }
+            if (args[2].equals("negative")) {
+                bitMapFromFile.negativeImage();
+            }
 
             // In terminal, the second argument refers to where you want the new bitmap to populate.
             bitMapFromFile.write(args[1]);

@@ -16,7 +16,7 @@ public class BitMap {
         File f = new File(fileName);
         this.pixelData = ImageIO.read(f);
 
-        System.out.println("Reading complete.");
+        //System.out.println("Reading complete.");
     }
 
     // === instance methods ===
@@ -25,7 +25,8 @@ public class BitMap {
     public void write(String fileNameToWriteTo) throws IOException {
         File f = new File(fileNameToWriteTo);
         ImageIO.write(this.pixelData, "bmp", f);
-        System.out.println("Completed Writing");
+
+        //System.out.println("Completed Writing");
     }
 
     // instance that converts image to grayscale
@@ -65,8 +66,8 @@ public class BitMap {
     }
 
     public void convertImageToPinkBox() {
-        for (int i=0; i < this.pixelData.getWidth(); i++){
-            for( int j=0; j < this.pixelData.getHeight(); j++){
+        for (int i = 0; i < this.pixelData.getWidth(); i++){
+            for( int j = 0; j < this.pixelData.getHeight(); j++){
                 //getting RGB color on each pixel
                 Color c = new Color(this.pixelData.getRGB(i, j));
                 int r = c.getRed();
@@ -80,18 +81,16 @@ public class BitMap {
         }
     }
     // http://www.java2s.com/Tutorials/Java/Graphics_How_to/Image/Convert_negative_image_to_positive.htm
-//    public void invertImage() {
+    public void negativeImage() {
+        for (int i = 0; i < this.pixelData.getWidth(); i++){
+            for( int j=0; j < this.pixelData.getHeight(); j++){
+                Color color = new Color(this.pixelData.getRGB(i, j), true);
+                color = new Color(255 - color.getRed(), 255 - color.getGreen(), 255 - color.getBlue());
+                this.pixelData.setRGB(i, j, color.getRGB());
+            }
+        }
+    }
 //
-//        for (int i=0; i < this.pixelData.getWidth(); i++){
-//            for( int j=0; j < this.pixelData.getHeight(); j++){
-//                int rgba = img.getRGB(x, y);
-//                Color color = new Color(rgba, true);
-//                color = new Color(255 - color.getRed(), 255 - color.getGreen(), 255 - color.getBlue());
-//                img.setRGB(x, y, color.getRGB());
-//            }
-//        }
-//    }
-//    
 //    // Code kindly supplied by Jon Veach
 //    public void reverseVertically() {
 //        for (int i = 0; i < width; i++){
